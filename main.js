@@ -15,7 +15,7 @@
     */
 
 
-    var buttons = ["abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"] //DO NOT MODIFY
+    var buttons = ["abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]; //DO NOT MODIFY
 
 
     // YOU CAN ADD TO AND MODIFY THE CODE BELOW THIS LINE
@@ -23,43 +23,97 @@
     //   V
 
     var convertPhoneWord = function(phoneWord) {
-
+        var phoneNumbers = [];
+        var phoneCase;
+       // var character = input.charAt(i);
         //Enter your code in this function body
-        if(phoneWord === null || phoneWord === undefined || phoneWord === '' || phoneWord === isSymbol){
+        
+        if(phoneWord === null || phoneWord === undefined || phoneWord === '' || phoneWord === "!@#$%^&"){
             return '';
-        }
-                    // phoneWord === isDigit;
-           else
-        {
+        } 
+        else {
+            phoneNumbers = phoneWord
+            .replace("0","0")
+
+            .replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
+
+            .replace(/A/g, "2").replace("B", "2").replace("C", "2")
+
+            .replace(/D/g, "3").replace(/E/g, "3").replace(/F/g, "3").replace(/e/g,"3")
+        
+            .replace(/G/g,"4").replace(/H/g,"4").replace(/I/g,"4")
             
+            .replace("J","5").replace(/K/g,"5").replace(/L/g,"5")
+            
+            .replace(/M/g,"6").replace(/N/g,"6").replace(/O/g,"6").replace(/o/g, "6").replace(/m/g,"6")
+            
+            .replace(/P/g, "7").replace(/Q/g, "7").replace(/R/g, "7").replace("S","7").replace(/r/g,"7")
+            
+            .replace(/T/g, "8").replace(/U/g, "8").replace(/V/, "3").replace(/t/g,"8")
+            
+            .replace("W", "9").replace("X", "9").replace(/Y/g, "9").replace(/Z/g,"9").replace(/y/g, "9");
+
+            return phoneNumbers;
         }
-    }
+            
+        //     switch (isLetter(phoneWord))
+        //     {
+        //         case 'a':
+        //             case 'b':
+        //                 case 'c': 
+        //             phoneWord.replace("a"|"b"|"c","2");
+        //             break;
+        //         case 'd':
+        //             case 'e':
+        //                 case 'f': phoneWord+="3";
+        //             break;
+        //         case 'g':
+        //             case 'h':
+        //                 case 'i': phoneWord+="4";
+        //             break;
+        //         case 'j':
+        //             case 'k': 
+        //                 case 'l': phoneWord+="5";
+        //             break;
+        //         case 'm':
+        //             case 'n':
+        //                 case 'o': phoneWord+="6";
+        //             break;
+        //         case 'p':
+        //             case 'q':
+        //                 case 'r':
+        //                     case 's': phoneWord+="7";
+        //             break;
+        //         case 't':
+        //             case 'u':
+        //                 case 'v': phoneWord+="8";
+        //             break;
+        //         case 'w':
+        //             case 'x':
+        //                 case 'y':
+        //                     case 'z': phoneWord+="9";
+        //             break;
+        //         case "(":
+        //             case ")":
+        //                 phoneWord+= "(" && ")";
+        //             break;
+        //             case "-":
+        //                 phoneWord+="-";
+        //                 break;
+        //             return phoneWord;
+        //     }
+        }
 
-    //    ^
-    //    |
-    //YOU CAN ADD TO OR MODIFY THE CODE ABOVE THIS LINE
-    var isSymbol = function(character) {
-        return "!@#$%^&*()_+~{}|\:/".indexOf(character) != -1;
-    }
+  //helper functions...do not modify, but you can use them in your code if you wish.
 
+  var isDigit = function(character) {
+    return "0123456789".indexOf(character) !== -1;
+}
 
-
-    // DO NOT CHANGE ANY CODE AFTER THIS LINE.
-    //     |
-    //     |
-    //     V
-
-
-    //helper functions...do not modify, but you can use them in your code if you wish.
-
-    var isDigit = function(character) {
-        return "0123456789".indexOf(character) !== -1;
-    }
-
-    var isLetter = function(character) {
-        character = character.toUpperCase();    
-        return "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(character) !== -1;
-    }
+var isLetter = function(character) {
+    character = character.toUpperCase();    
+    return "abcdefghijklmnopqrstuvwxyz".indexOf(character) !== -1;
+}
 
     //Run tests on the function
     testFunction(convertPhoneWord); //DO NOT MODIFY
